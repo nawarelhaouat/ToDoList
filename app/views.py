@@ -16,3 +16,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
         elif status == 'pending':
             qs = qs.filter(completed=False)
         return qs
+
+class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset         = Task.objects.all()
+    serializer_class = TaskSerializer
